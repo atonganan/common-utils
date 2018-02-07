@@ -11,7 +11,7 @@ import java.util.List;
  * Number utilities for Meme project
  * Created by jgnan on 05/11/2016.
  */
-public final class GosuNumbers {
+public final class ShenNumbers {
     /**
      * 判斷是否數字類型
      * @param type
@@ -197,7 +197,7 @@ public final class GosuNumbers {
     public static Long toLong(Object val, Long l) {
         if(val == null) return l;
         if(val instanceof Number) return ((Number) val).longValue();
-        BigDecimal decimal = new BigDecimal(GosuStrings.str(val));
+        BigDecimal decimal = new BigDecimal(ShenStrings.str(val));
         return decimal == null ? l : decimal.longValue();
     }
 
@@ -209,7 +209,7 @@ public final class GosuNumbers {
         if(val == null) return dval;
         return val instanceof Number ?
                 ((Number) val).intValue() :
-                new BigDecimal(GosuStrings.str(val)).intValue();
+                new BigDecimal(ShenStrings.str(val)).intValue();
     }
 
     public static Long[] toLongs(Iterable<?> vals) {

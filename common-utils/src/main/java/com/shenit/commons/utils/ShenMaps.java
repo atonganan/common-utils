@@ -16,8 +16,8 @@ import java.util.*;
  * Map utils
  * Created by jgnan on 27/12/2016.
  */
-public final class GosuMaps {
-    private static final Logger LOG = LoggerFactory.getLogger(GosuMaps.class);
+public final class ShenMaps {
+    private static final Logger LOG = LoggerFactory.getLogger(ShenMaps.class);
 
     /**
      * Put all key - value pairs to map.
@@ -98,7 +98,7 @@ public final class GosuMaps {
     public static <K,V> Map<K,V> zip(K[] fields, V[] vals) {
         Map<K,V> result = new LinkedHashMap<>();
         for(int i = 0 ;i< fields.length;i++){
-            result.put(fields[i], GosuArrays.get(vals,i,null));
+            result.put(fields[i], ShenArrays.get(vals,i,null));
         }
         return result;
     }
@@ -155,20 +155,20 @@ public final class GosuMaps {
         Object firstPart = paths[0];
         paths = ArrayUtils.subarray(paths,1,paths.length);
 
-        Object data = MapUtils.getObject(map, GosuStrings.str(firstPart));
+        Object data = MapUtils.getObject(map, ShenStrings.str(firstPart));
         if(data == null) return defaultVal;
 
         for(Object path : paths){
             if (LOG.isTraceEnabled()) LOG.trace("[get([map, defaultVal, paths])] Trying to parse part -> {}",path);
             if(data instanceof Map) {
-                data = MapUtils.getObject((Map<Object,Object>)data, GosuStrings.str(path));
+                data = MapUtils.getObject((Map<Object,Object>)data, ShenStrings.str(path));
             }else if(path instanceof Number){
                 int num = ((Number)path).intValue();
 
                 if(data.getClass().isArray()){
-                    data = GosuArrays.get((Object[]) data,num);
+                    data = ShenArrays.get((Object[]) data,num);
                 }else if(data instanceof Collection){
-                    data = GosuCollections.get(((Collection)data),((Number)path).intValue());
+                    data = ShenCollections.get(((Collection)data),((Number)path).intValue());
                 }
             }else{
                 return defaultVal;
@@ -233,7 +233,7 @@ public final class GosuMaps {
      */
     private static <K,V extends Number> Map<K,V> doIncr(Map<K, V> map, K field, V val, Class<V> type) {
         if(map ==null) return map;
-        map.put(field, GosuNumbers.add(type,map.getOrDefault(field, GosuNumbers.convert(BigDecimal.ZERO,type)),val));
+        map.put(field, ShenNumbers.add(type,map.getOrDefault(field, ShenNumbers.convert(BigDecimal.ZERO,type)),val));
         return map;
     }
 }

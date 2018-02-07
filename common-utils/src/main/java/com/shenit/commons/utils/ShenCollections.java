@@ -15,7 +15,7 @@ import java.util.stream.Stream;
  * Collection utils.
  * Created by jgnan on 05/11/2016.
  */
-public final class GosuCollections {
+public final class ShenCollections {
 
 
     /**
@@ -145,8 +145,8 @@ public final class GosuCollections {
         int size = CollectionUtils.size(coll);
         if(index < 0) index += size;
         if(index >= size) return null;  //超出索引大小
-        if(!GosuNumbers.between(index,0,size)) index = GosuNumbers.fixed(index,size);
-        if(!GosuNumbers.between(index,0,size)) return null; //only fixed once
+        if(!ShenNumbers.between(index,0,size)) index = ShenNumbers.fixed(index,size);
+        if(!ShenNumbers.between(index,0,size)) return null; //only fixed once
         return IterableUtils.get(coll,index);
     }
 
@@ -200,7 +200,7 @@ public final class GosuCollections {
     public static final <T> T getWithin(Collection<T> list, int index){
         if(CollectionUtils.isEmpty(list)) return null;
         int size = CollectionUtils.size(list);
-        if(!GosuNumbers.between(index,0,size)) return null;
+        if(!ShenNumbers.between(index,0,size)) return null;
         return IterableUtils.get(list,index);
     }
 
@@ -302,7 +302,7 @@ public final class GosuCollections {
         int size = CollectionUtils.size(list);
         if(size < 1) return sub;
         if(offset < 0) offset += size;
-        offset = GosuNumbers.fixed(offset,0,size - 1);
+        offset = ShenNumbers.fixed(offset,0,size - 1);
         int toIndex= fetchSize == null ? size - 1 : Math.min(offset+fetchSize,size);
         return list.subList(offset,toIndex);
     }

@@ -17,7 +17,7 @@ import java.util.function.IntFunction;
  * Array utilities.
  * Created by jgnan on 05/11/2016.
  */
-public final class GosuArrays {
+public final class ShenArrays {
 
     public static void shuffle(int[] array) {
         Random rnd = ThreadLocalRandom.current();
@@ -52,7 +52,7 @@ public final class GosuArrays {
                 v -> {
                     if(v == null) return 0;
                     else if(v instanceof Number) return ((Number)v).intValue();
-                    else return NumberUtils.toInt(GosuStrings.str(v),0);
+                    else return NumberUtils.toInt(ShenStrings.str(v),0);
                 }, Integer[]::new);
     }
 
@@ -67,7 +67,7 @@ public final class GosuArrays {
                 v -> {
                     if(v == null) return 0l;
                     else if(v instanceof Number) return ((Number)v).longValue();
-                    else return NumberUtils.toLong(GosuStrings.str(v),0l);
+                    else return NumberUtils.toLong(ShenStrings.str(v),0l);
                 }, Long[]::new);
     }
 
@@ -188,7 +188,7 @@ public final class GosuArrays {
      * @param l 默认值
      */
     public static Long getLong(Object[] result, int i, Long l) {
-        return NumberUtils.toLong(GosuStrings.str(get(result,i)),l);
+        return NumberUtils.toLong(ShenStrings.str(get(result,i)),l);
     }
 
     /**
@@ -198,7 +198,7 @@ public final class GosuArrays {
      * @return
      */
     public static String getString(Object[] result, int i) {
-        return GosuStrings.str(get(result,i));
+        return ShenStrings.str(get(result,i));
     }
 
     /**

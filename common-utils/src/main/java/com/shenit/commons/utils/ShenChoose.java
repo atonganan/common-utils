@@ -5,7 +5,7 @@ import org.apache.commons.lang3.ArrayUtils;
 /**
  * Created by jiangnan on 30/06/2017.
  */
-public final class GosuChoose {
+public final class ShenChoose {
     /**
      * 获取第一个非空的值
      * @param vals

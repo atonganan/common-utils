@@ -110,7 +110,7 @@ GsonUtils {
     public static <T> T parse(String str, TypeToken<T> type){
         if(StringUtils.isEmpty(str)) return null;
         try {
-            if(str.startsWith(GosuStrings.DOUBLE_QUOTE)){
+            if(str.startsWith(ShenStrings.DOUBLE_QUOTE)){
                 //对于Rails的序列化的特殊处理
                 str = str.substring(1, str.length() -1);
                 str = StringEscapeUtils.unescapeJson(str);
@@ -245,7 +245,7 @@ GsonUtils {
                 throws JsonParseException {
             String value = json.getAsJsonPrimitive().getAsString();
             if(StringUtils.isNumeric(value)) {
-                long ts = GosuNumbers.toLong(value, 0l);
+                long ts = ShenNumbers.toLong(value, 0l);
                 if (ts > 0) return new Date(value.length() == 10 ? ts * 1000 : ts);
             }
             if(value != null && value.startsWith(EMPTY_ZERO_DATE)) return null;

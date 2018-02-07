@@ -1,14 +1,14 @@
 package com.shenit.commons.exp;
 
 import com.shenit.commons.pojo.Response;
-import com.shenit.commons.utils.GosuStrings;
 import com.shenit.commons.utils.GsonUtils;
+import com.shenit.commons.utils.ShenStrings;
 
 public class BusinessException extends RuntimeException{
     public Response resp = new Response();
     public BusinessException(){ }
     public BusinessException(int code){
-        super(GosuStrings.str(code));
+        super(ShenStrings.str(code));
         resp.code =code;
     }
 

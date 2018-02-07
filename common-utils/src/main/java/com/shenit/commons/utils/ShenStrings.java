@@ -17,8 +17,8 @@ import java.util.stream.Collectors;
 /**
  * Created by jgnan on 28/12/2016.
  */
-public final class GosuStrings {
-    private static final Logger LOG = LoggerFactory.getLogger(GosuStrings.class);
+public final class ShenStrings {
+    private static final Logger LOG = LoggerFactory.getLogger(ShenStrings.class);
     public static final String HYPHEN = "-";
     public static final String UNDER_SCORE = "_";
     public static final String SLASH = "/";
@@ -61,7 +61,7 @@ public final class GosuStrings {
         String result = null;
         if(obj instanceof String) result = (String)obj;
         else if(obj instanceof Number) result = obj.toString();
-        else if(obj instanceof Date) result = GosuDates.format((Date) obj);
+        else if(obj instanceof Date) result = ShenDates.format((Date) obj);
         else if(obj.getClass().isEnum()) result = obj.toString();
         else result = GsonUtils.format(obj);
         return result;
@@ -208,7 +208,7 @@ public final class GosuStrings {
         if (list != null && list.size() > 0) {
             boolean joined = false;
             for (Object item : list) {
-                output = output + GosuStrings.str(item);
+                output = output + ShenStrings.str(item);
                 output = output + separator;
                 joined = true;
             }
@@ -398,7 +398,7 @@ public final class GosuStrings {
     public static byte[] bytes(Object key,String charset) {
         if(key == null) return null;
         try {
-            String str = GosuStrings.str(key);
+            String str = ShenStrings.str(key);
             return StringUtils.isEmpty(charset) ? str.getBytes() : str.getBytes(charset);
         } catch (UnsupportedEncodingException e) {
             LOG.warn("[bytes] Unsupported charset -> {}",charset);
@@ -414,7 +414,7 @@ public final class GosuStrings {
      */
     public static byte[] bytes(Object key,Charset charset) {
         if(key == null) return null;
-        String str = GosuStrings.str(key);
+        String str = ShenStrings.str(key);
         return charset == null ? str.getBytes() : str.getBytes(charset);
     }
 

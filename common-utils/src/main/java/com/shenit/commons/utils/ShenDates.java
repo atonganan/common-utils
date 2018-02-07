@@ -21,8 +21,8 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by jgnan on 11/11/2016.
  */
-public final class GosuDates {
-    private static final Logger LOG = LoggerFactory.getLogger(GosuDates.class);
+public final class ShenDates {
+    private static final Logger LOG = LoggerFactory.getLogger(ShenDates.class);
     private static final int[] FIELDS = {Calendar.YEAR,Calendar.MONTH,Calendar.DATE, Calendar.HOUR_OF_DAY, Calendar.MINUTE,Calendar.SECOND, Calendar.MILLISECOND};
     public static String FRM_ymdhms = "yyyy-MM-dd HH:mm:ss";
     public static String TIMEZONE_GTM_8 = "Asia/Taipei";
@@ -91,7 +91,7 @@ public final class GosuDates {
      * @return
      */
     public static Date min(Date... dates) {
-        dates = GosuArrays.notEmpty(dates);
+        dates = ShenArrays.notEmpty(dates);
         return ArrayUtils.isEmpty(dates) ? null :
                 Arrays.stream(dates)
                         .filter(item -> item != null)
@@ -106,7 +106,7 @@ public final class GosuDates {
      * @return
      */
     public static Date max(Date... dates) {
-        dates = GosuArrays.notEmpty(dates);
+        dates = ShenArrays.notEmpty(dates);
         return ArrayUtils.isEmpty(dates) ? null :
                 Arrays.stream(dates)
                         .filter(item -> item != null)
@@ -318,7 +318,7 @@ public final class GosuDates {
         Calendar cal = calendar();
         int val;
         for (int i = 0; i < FIELDS.length; i++) {
-            val = GosuArrays.get(fields, i, (Integer) 0);
+            val = ShenArrays.get(fields, i, (Integer) 0);
             if (val > 0 && i == 1) val = val - 1; //special process for month
             cal.set(FIELDS[i], val);
         }
@@ -417,9 +417,9 @@ public final class GosuDates {
      */
     public static Date firstDayOfWeek(Date date,Integer hourSpan){
         if(hourSpan == null) hourSpan = 0;
-        if(date == null) date = GosuDates.utcDate(hourSpan);
-        else date = GosuDates.add(date,Calendar.HOUR_OF_DAY,hourSpan);
-        return GosuDates.setFields(date,Calendar.DAY_OF_WEEK,calendar().getFirstDayOfWeek());
+        if(date == null) date = ShenDates.utcDate(hourSpan);
+        else date = ShenDates.add(date,Calendar.HOUR_OF_DAY,hourSpan);
+        return ShenDates.setFields(date,Calendar.DAY_OF_WEEK,calendar().getFirstDayOfWeek());
     }
 
     /**
@@ -547,7 +547,7 @@ public final class GosuDates {
      * @return
      */
     public static Date utcWithHourOffset(Date date, int hourOffset) {
-        date = date == null ? GosuDates.utc() : GosuDates.utc(date);
+        date = date == null ? ShenDates.utc() : ShenDates.utc(date);
         return add(date,Calendar.HOUR_OF_DAY,hourOffset);
     }
 

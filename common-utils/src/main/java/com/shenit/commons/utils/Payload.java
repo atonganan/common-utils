@@ -39,8 +39,8 @@ public class Payload extends HashMap<String,Object> {
     public String toQuery(){
         StringBuilder builder = new StringBuilder();
         for(String key : keySet()){
-            builder.append(key).append(GosuStrings.EQ).append(get(key));
-            builder.append(GosuStrings.AMP);
+            builder.append(key).append(ShenStrings.EQ).append(get(key));
+            builder.append(ShenStrings.AMP);
         }
         if(builder.length() > 0) builder.deleteCharAt(builder.length() - 1);
         return builder.toString();

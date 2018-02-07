@@ -19,10 +19,10 @@ public class GosuMapsTest {
                         Payload.wrap("a3",2,"b3",3,"c3",4)}),
                 "b1", Lists.newArrayList(1,2,3),
                 "c1", "simple case");
-        Assert.assertEquals(Integer.valueOf(1),GosuMaps.get(maps,null,"a1","a2",0,"a3"));
-        Assert.assertEquals(Integer.valueOf(2),GosuMaps.get(maps,null,"b1",1));
-        Assert.assertNull(GosuMaps.get(maps,null,"b1",5));    //超出索引大小的处理
-        Assert.assertEquals("simple case",GosuMaps.get(maps,null,"c1"));
+        Assert.assertEquals(Integer.valueOf(1), ShenMaps.get(maps,null,"a1","a2",0,"a3"));
+        Assert.assertEquals(Integer.valueOf(2), ShenMaps.get(maps,null,"b1",1));
+        Assert.assertNull(ShenMaps.get(maps,null,"b1",5));    //超出索引大小的处理
+        Assert.assertEquals("simple case", ShenMaps.get(maps,null,"c1"));
 
     }
 }

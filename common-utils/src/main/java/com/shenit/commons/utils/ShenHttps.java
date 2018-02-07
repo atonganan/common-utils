@@ -12,8 +12,8 @@ import java.util.Map;
 /**
  * Created by jiangnan on 30/06/2017.
  */
-public final class GosuHttps {
-    private static final Logger LOG = LoggerFactory.getLogger(GosuHttps.class);
+public final class ShenHttps {
+    private static final Logger LOG = LoggerFactory.getLogger(ShenHttps.class);
     private static final String X_FORWARDED_FOR = "X-Forwarded-For";
     private static final String X_REAL_IP = "X-Real-IP";
 
@@ -23,7 +23,7 @@ public final class GosuHttps {
      * @return
      */
     public static String getClientIp(HttpServletRequest request){
-        return GosuChoose.first(request.getRemoteAddr(),
+        return ShenChoose.first(request.getRemoteAddr(),
                 request.getHeader(X_FORWARDED_FOR),
                 request.getHeader(X_REAL_IP));
     }
@@ -45,12 +45,12 @@ public final class GosuHttps {
     public static String dumpRequest(HttpServletRequest request) {
         StringBuilder builder = new StringBuilder();
         builder.append(request.getMethod()).append(StringUtils.SPACE).append(request.getRequestURI());
-        if(StringUtils.isNotBlank(request.getQueryString())) builder.append(GosuStrings.QUESTION_MARK);
+        if(StringUtils.isNotBlank(request.getQueryString())) builder.append(ShenStrings.QUESTION_MARK);
         builder.append('\n');
         String header;
         for(Enumeration<String> headers = request.getHeaderNames();headers.hasMoreElements();){
             header = headers.nextElement();
-            builder.append(header).append(GosuStrings.COLON).append(StringUtils.SPACE).append(request.getHeader(header));
+            builder.append(header).append(ShenStrings.COLON).append(StringUtils.SPACE).append(request.getHeader(header));
         }
         return builder.toString();
     }

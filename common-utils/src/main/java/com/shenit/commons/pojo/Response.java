@@ -1,7 +1,7 @@
 package com.shenit.commons.pojo;
 
-import com.shenit.commons.utils.GosuValidates;
 import com.shenit.commons.utils.GsonUtils;
+import com.shenit.commons.utils.ShenValidates;
 import com.shenit.commons.utils.Payload;
 
 /**
@@ -46,7 +46,7 @@ public class Response<T> {
      * @return
      */
     public boolean hasError(){
-        return GosuValidates.ne(code,OK_CODE);
+        return ShenValidates.ne(code,OK_CODE);
     }
 
     /**

@@ -12,7 +12,7 @@ import java.util.Set;
  * 校验用的工具类.
  * Created by jiangnan on 19/07/2017.
  */
-public final class GosuValidates {
+public final class ShenValidates {
     private static final String SHOULD_NOT_BE_NULL_HINTS = " should not be null";
 
     /**
@@ -127,7 +127,7 @@ public final class GosuValidates {
      */
     public static <T> boolean containsAll(Collection<T> matchedLevels, T... items) {
         if(CollectionUtils.isEmpty(matchedLevels)) return false;
-        Set<T> itemSet = Sets.newHashSet(GosuArrays.asList(items));
+        Set<T> itemSet = Sets.newHashSet(ShenArrays.asList(items));
         itemSet.removeAll(matchedLevels);
         return CollectionUtils.isEmpty(itemSet);
     }
@@ -139,8 +139,8 @@ public final class GosuValidates {
      */
     public static void notNullOrEmpty(Object... pairs) {
         for(int i=0;i<pairs.length;i+=2){
-            Object val = GosuArrays.get(pairs,i);
-            String hints = GosuArrays.getString(pairs,i+1);
+            Object val = ShenArrays.get(pairs,i);
+            String hints = ShenArrays.getString(pairs,i+1);
             if(val instanceof String && StringUtils.isEmpty((CharSequence) val))
                 throw new IllegalArgumentException(hints);
             else if(val == null)
