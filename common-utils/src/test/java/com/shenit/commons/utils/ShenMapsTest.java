@@ -7,7 +7,7 @@ import org.junit.Test;
 /**
  * Created by jiangnan on 23/07/2017.
  */
-public class GosuMapsTest {
+public class ShenMapsTest {
     /**
      * 测试超级get
      */
