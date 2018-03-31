@@ -12,7 +12,7 @@ public class Response<T> {
     public static final int OK_CODE = 200;
     public static final Response OK = new Response();
 
-    public Object code;
+    public int code;
     public String msg;
     public T data;
 
@@ -21,7 +21,7 @@ public class Response<T> {
         this.msg = OK_MSG;
     }
 
-    public Response(Object code,String msg){
+    public Response(int code,String msg){
         this.code = code;
         this.msg = msg;
     }
@@ -31,11 +31,11 @@ public class Response<T> {
         this.data = data;
     }
 
-    public static Response simple(Object code, String msg) {
+    public static Response simple(int code, String msg) {
         return new Response(code, msg);
     }
 
-    public Response status(Object code, String msg){
+    public Response status(int code, String msg){
         this.code = code;
         this.msg = msg;
         return this;
