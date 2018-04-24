@@ -11,7 +11,7 @@ public class ShenMapsTest {
     /**
      * 测试超级get
      */
-    @Test
+//    @Test
     public void testGet(){
         Payload maps = Payload.wrap(
                 "a1",Payload.wrap("a2",new Payload[]{
